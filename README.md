@@ -4,14 +4,12 @@ A modern portfolio website built with Next.js 15, featuring AI chat integration 
 
 ## ✨ Features
 
-- **AI-Powered Email Generation**: Create professional emails with AI assistance
-- **Interactive Chat**: Talk directly with an AI version of me using advanced LLMs
+]- **Interactive Chat**: Talk directly with an AI version of me using advanced LLMs
 - **Vector Embeddings**: Semantic search capabilities for more accurate AI responses
 - **Dynamic Animations**: Engaging UI with smooth animations
 - **Responsive Design**: Seamless experience across all devices
 - **Dark Mode**: Eye-friendly interface for all lighting conditions
 - **Project Showcase**: Interactive displays of my work and contributions
-- **AI-Powered Dynamic Theming**: Transform the entire interface with natural language requests, allowing real-time visual customization
 
 ---
 
@@ -21,10 +19,7 @@ A modern portfolio website built with Next.js 15, featuring AI chat integration 
 | ------------------- | --------------------------------------------------- |
 | **Frontend**        | Next.js 15, TypeScript, Tailwind CSS, Framer Motion |
 | **Backend**         | Node.js, Next.js API Routes                         |
-| **AI Integration**  | OpenRouter API                                      |
-| **Embeddings**      | Google Gemini                                       |
 | **Vector Database** | Pinecone                                            |
-| **Search**          | Tavily API                                          |
 | **Email**           | Nodemailer, Abstract API                            |
 | **Deployment**      | Vercel + Edge Functions                             |
 
@@ -92,8 +87,6 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000)
 
-> **⚠️ IMPORTANT NOTE:** Make sure to uncomment the following line in `api/chat/route.ts` & `api/theme/route.ts` when working in development:
->
 > ```javascript
 > // "http://localhost:3000",
 > ```
@@ -107,15 +100,6 @@ The portfolio includes an AI-powered email generation system that:
 - Supports both AI-generated and manual email composition
 - Features elegant text generation animations
 
-## 💬 AI Chat Integration
-
-Chat with an AI version of me that:
-
-- Answers questions about my skills, experience, and projects
-- Accesses real-time information when needed via Tavily search
-- Maintains conversation context across messages
-- Provides accurate information about my background and expertise
-- Uses vector embeddings for more accurate and relevant responses
 
 ## 🎨 AI Theme Customization
 
