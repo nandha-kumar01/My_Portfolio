@@ -95,7 +95,7 @@ export function Navbar() {
     let ticking = false;
     const throttledHandleScroll = () => {
       if (!ticking) {
-        requestAnimationFrame((timestamp) => {
+        requestAnimationFrame(() => {
           handleScroll();
           ticking = false;
         });

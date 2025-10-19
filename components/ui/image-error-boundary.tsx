@@ -13,7 +13,8 @@ export class ImageErrorBoundary extends Component<ErrorBoundaryProps, ErrorBound
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(_error: Error, _errorInfo: ErrorInfo) {
+    // Error logging can be added here if needed
   }
 
   render() {

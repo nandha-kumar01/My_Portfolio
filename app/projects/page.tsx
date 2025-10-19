@@ -90,7 +90,7 @@ const projects: Project[] = [
       "Jewelra is a luxurious online jewellery destination, showcasing an exquisite collection of 2000+ timeless designs across Gold, Silver, Diamond, Coins & Bars. The platform offers a refined browsing experience with high-definition visuals, detailed product insights, and curated collections to suit every style. Users can effortlessly create wishlists, manage their shopping cart, and enjoy a secure, user-friendly login/signup process. Jewelra blends elegance with technology, making premium jewellery accessible with just a click—where tradition meets modern convenience.",
     media: {
       type: "image",
-      src: ["/projects/Gemtrove 1.png", "/projects/Gemtrove 2.jpeg", "/projects/Gemtrove 3.png"],
+      src: ["/projects/Jewelra 1.png", "/projects/Jewelra 2.png", "/projects/Jewelra 3.png"],
     },
       tags: ["Next.js", "Tailwind CSS", "TypeScript" , "MongoDB" , "Express.js" , "Cloudinary", "Framer Motion"],
     link: "https://jewelra.vercel.app/",
@@ -195,6 +195,24 @@ export default function Projects() {
     script.text = JSON.stringify(structuredData);
     document.head.appendChild(script);
 
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  // Separate useEffect for handling modal and image index
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+      setCurrentImageIndex(0); // Reset image index when project changes
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Separate useEffect for handling modal and image index
+  useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = "hidden";
       setCurrentImageIndex(0); // Reset image index when project changes
@@ -206,16 +224,19 @@ export default function Projects() {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (selectedProject && Array.isArray(selectedProject.media.src) && selectedProject.media.src.length > 1) {
         if (e.key === 'ArrowLeft') {
+          e.preventDefault();
           setCurrentImageIndex((prev) => 
             prev === 0 ? (selectedProject.media.src as string[]).length - 1 : prev - 1
           );
         } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
           setCurrentImageIndex((prev) => 
             (prev + 1) % (selectedProject.media.src as string[]).length
           );
         }
       }
       if (e.key === 'Escape') {
+        e.preventDefault();
         setSelectedProject(null);
       }
     };
@@ -225,7 +246,6 @@ export default function Projects() {
     }
 
     return () => {
-      document.head.removeChild(script);
       document.body.style.overflow = "auto";
       document.removeEventListener('keydown', handleKeyPress);
     };
@@ -449,7 +469,7 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-12"
+            className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4 pt-20 md:p-12 md:pt-24"
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
@@ -463,7 +483,7 @@ export default function Projects() {
                 stiffness: 260,
                 damping: 30,
               }}
-              className="relative bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-2xl overflow-hidden shadow-2xl border border-neutral-700/50 w-full max-w-7xl max-h-[90vh] flex flex-col md:flex-row will-change-transform"
+              className="relative bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-2xl overflow-hidden shadow-2xl border border-neutral-700/50 w-full max-w-7xl max-h-[80vh] flex flex-col md:flex-row will-change-transform"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -482,12 +502,13 @@ export default function Projects() {
                     <div className="relative">
                       <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-neutral-950 shadow-2xl">
                         <SafeImage
+                          key={`${selectedProject.id}-${currentImageIndex}`} // Force re-render on image change
                           src={Array.isArray(selectedProject.media.src) 
                             ? selectedProject.media.src[currentImageIndex] 
                             : selectedProject.media.src}
                           alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
                           fill
-                          className="object-cover"
+                          className="object-cover transition-opacity duration-300"
                           priority
                           sizes="60vw"
                           fallbackSrc="/projects/placeholder.svg"
@@ -500,12 +521,15 @@ export default function Projects() {
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
+                              e.preventDefault();
+                              const srcArray = selectedProject.media.src as string[];
                               setCurrentImageIndex((prev) => 
-                                prev === 0 ? (selectedProject.media.src as string[]).length - 1 : prev - 1
+                                prev === 0 ? srcArray.length - 1 : prev - 1
                               );
                             }}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-200 hover:scale-110 z-10"
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-200 hover:scale-110 z-10 backdrop-blur-sm"
                             aria-label="Previous image"
+                            type="button"
                           >
                             <FiChevronLeft className="w-6 h-6" />
                           </button>
@@ -513,12 +537,15 @@ export default function Projects() {
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
+                              e.preventDefault();
+                              const srcArray = selectedProject.media.src as string[];
                               setCurrentImageIndex((prev) => 
-                                (prev + 1) % (selectedProject.media.src as string[]).length
+                                (prev + 1) % srcArray.length
                               );
                             }}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-200 hover:scale-110 z-10"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-200 hover:scale-110 z-10 backdrop-blur-sm"
                             aria-label="Next image"
+                            type="button"
                           >
                             <FiChevronRight className="w-6 h-6" />
                           </button>
@@ -530,14 +557,16 @@ export default function Projects() {
                                 key={index}
                                 onClick={(e) => {
                                   e.stopPropagation();
+                                  e.preventDefault();
                                   setCurrentImageIndex(index);
                                 }}
                                 className={`w-3 h-3 rounded-full transition-all duration-200 ${
                                   index === currentImageIndex 
-                                    ? 'bg-white scale-110' 
+                                    ? 'bg-white scale-110 shadow-lg' 
                                     : 'bg-white/50 hover:bg-white/80'
                                 }`}
                                 aria-label={`Go to image ${index + 1}`}
+                                type="button"
                               />
                             ))}
                           </div>

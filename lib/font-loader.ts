@@ -45,7 +45,8 @@ export const geistMono = Geist_Mono({
 });
 
 // Font loading error handler
-export const handleFontError = (fontName: string) => {
+export const handleFontError = (_fontName: string) => {
+  // Handle font loading errors here if needed
 };
 
 // Check if fonts are available

@@ -68,7 +68,7 @@ export const SparklesCore = ({
         particle.draw(ctx);
       });
 
-      animationFrame.current = requestAnimationFrame((timestamp) => animate());
+      animationFrame.current = requestAnimationFrame(() => animate());
     };
 
     animate();

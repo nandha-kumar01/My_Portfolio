@@ -20,10 +20,10 @@ export class ErrorBoundary extends Component<Props, State> {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: Error): State {
+  static getDerivedStateFromError(_error: Error): State {
     return {
       hasError: true,
-      error,
+      error: _error,
     };
   }
 
@@ -40,10 +40,10 @@ export class ErrorBoundary extends Component<Props, State> {
     });
   }
 
-  private logErrorToService(error: Error) {
+  private logErrorToService(_error: Error) {
     // Integration with error monitoring services
     try {
-      // Example: Sentry.captureException(error, { contexts: { react: errorInfo } });
+      // Example: Sentry.captureException(_error, { contexts: { react: errorInfo } });
     } catch {
     }
   }
@@ -130,12 +130,13 @@ export class ErrorBoundary extends Component<Props, State> {
 
 // Hook version for functional components
 export function useErrorHandler() {
-  return (error: Error, errorInfo?: string) => {
+  return (_error: Error, _errorInfo?: string) => {
     if (process.env.NODE_ENV === "production") {
       // Log to monitoring service
       try {
-        // Example: Sentry.captureException(error);
-      } catch (e) {
+        // Example: Sentry.captureException(_error);
+      } catch (_e) {
+        // Silently fail if error logging fails
       }
     }
   };

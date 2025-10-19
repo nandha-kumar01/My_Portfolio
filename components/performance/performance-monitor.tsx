@@ -52,12 +52,19 @@ export function PerformanceMonitor() {
       const domReady = timing.domContentLoadedEventEnd - timing.navigationStart;
       const firstByte = timing.responseStart - timing.navigationStart;
 
+      // Report these metrics to analytics
+      reportMetric({ name: "page_load_time", value: loadTime });
+      reportMetric({ name: "dom_ready_time", value: domReady });
+      reportMetric({ name: "first_byte_time", value: firstByte });
     };
 
     // Monitor memory usage (if available)
     const monitorMemory = () => {
       if ("memory" in performance) {
         const memory = (performance as { memory?: { usedJSHeapSize: number; totalJSHeapSize: number; jsHeapSizeLimit: number } }).memory;
+        if (memory) {
+          reportMetric({ name: "memory_usage", value: memory.usedJSHeapSize });
+        }
       }
     };
 

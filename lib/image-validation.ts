@@ -62,7 +62,7 @@ export function listProjectImages(): string[] {
     return files.filter(file => 
       /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(file)
     );
-  } catch (error) {
+  } catch (_error) {
     return [];
   }
 }
