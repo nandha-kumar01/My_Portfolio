@@ -86,7 +86,7 @@ export default function Home() {
       {/* Main Sections with clear data attributes */}
       <section
         id="about"
-        className="relative scroll-mt-20 -mt-32 md:mt-0 pt-0"
+        className="relative scroll-mt-20 -mt-8 md:mt-0 pt-0"
         data-theme-target="about-section"
       >
         <About />
