@@ -147,25 +147,7 @@ The portfolio uses Pinecone vector database to store and retrieve embeddings:
 
 Create a `.env` file in the root directory and add your environment variables:
 
-```env
-# Development environment (all the apis are free)
-EMAIL_USER="your emailid"
-EMAIL_APP_PASSWORD="your App Password" # get it from your Google Account settings
-ABSTRACT_API_KEY="your abstract api key" # https://app.abstractapi.com/
-OPENROUTER_API_KEY="your openrouter api key" # https://openrouter.ai/
-TAVILY_API_KEY="your Tavily api key" # https://tavily.com/
 
-# Vector Database (Pinecone)
-PINECONE_API_KEY="your Pinecone API key" # https://app.pinecone.io/
-PINECONE_INDEX_NAME="your index name" # e.g., portfolio-embeddings
-
-# Google Gemini (for embeddings)
-GOOGLE_API_KEY="your Google API key" # https://ai.google.dev/
-
-#jwt auth
-JWT_EXPIRY="1m"
-JWT_SECRET="your jwt token" # use this command for linux = "openssl rand -hex 64" or node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"  (works on windows/linux/mac)
-```
 
 ## Vector Store Configuration
 
@@ -177,15 +159,7 @@ The vector store is configured in `lib/embeddings.ts` with the following setting
 
 You can modify these settings in the `initializeVectorStore` function if needed.
 
-## 📸 Preview
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/3fd52f61-e898-4d80-8df0-2730691c1926" alt="Preview 1" width="45%" />
-  &nbsp;
-  <img src="https://github.com/user-attachments/assets/2dadd649-c3d2-4e54-b554-7c2d2049c9d8" alt="Preview 2" width="45%" />
-</p>
-
----
 
 ## 📄 License
 
