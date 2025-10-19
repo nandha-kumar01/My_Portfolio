@@ -1,5 +1,5 @@
 export const defaultMetadata = {
-  metadataBase: new URL('https://nandha-portfolio.vercel.app'),
+  metadataBase: new URL('https://nandhaportfolio-03.vercel.app/'),
   title: "NANDHA | Front-End Developer ",
   description:
     "Front-End Developer  specializing in Next.js, TypeScript, and Modern Web Development. Welcome to NANDHA's professional portfolio - creating innovative digital solutions.",
@@ -22,26 +22,26 @@ export const defaultMetadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nandha-portfolio.vercel.app",
+    url: "https://nandhaportfolio-03.vercel.app/",
     title: "NANDHA | Full Stack Developer",
     description:
       "Front-End Developer specializing in Next.js, TypeScript, and Modern Web Development. Building amazing digital experiences.",
     siteName: "NANDHA Portfolio",
     images: [
       {
-        url: "/name.jpg",
+        url: "/nandha-og.jpg",
         width: 1200,
         height: 630,
         alt: "NANDHA - Front-End Developer Portfolio",
       },
       {
-        url: "/name.jpg",
+        url: "/nandha-og.jpg",
         width: 800,
         height: 800,
         alt: "NANDHA - Front-End Developer  Profile",
       },
       {
-        url: "/name.jpg",
+        url: "/nandha-og.jpg",
         width: 800,
         height: 800,
         alt: "NANDHA - Professional Profile",
@@ -54,6 +54,6 @@ export const defaultMetadata = {
     description:
       "Front-End Developer  specializing in Next.js, TypeScript, and Modern Web Development.",
     creator: "@NANDHA",
-    images: ["/og-image.jpg", "/my.jpg", "/name.jpg"],
+    images: ["/nandha-og.jpg", "/nandha-og.jpg", "/nandha-og.jpg"],
   },
 };

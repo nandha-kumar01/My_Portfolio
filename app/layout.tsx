@@ -33,15 +33,18 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href="https://nandha-portfolio.vercel.app" />
+        <link rel="canonical" href="https://nandhaportfolio-03.vercel.app/" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#000000" />
         <meta name="robots" content="index, follow" />
         
         {/* Additional OG tags for better sharing */}
+        <meta property="og:image" content="https://nandhaportfolio-03.vercel.app/nandha-og.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/jpeg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://nandhaportfolio-03.vercel.app/nandha-og.jpg" />
         <meta name="twitter:image:alt" content="Nandha Kumar - Front-End Developer Portfolio" />
         
         <link

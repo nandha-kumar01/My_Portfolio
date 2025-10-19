@@ -5,10 +5,10 @@ Disallow: /api/
 Disallow: /admin/
 
 # Host
-Host: https://rushikeshnimkar.xyz
+Host: https://nandhakumar.xyz
 
 # Sitemaps
-Sitemap: https://rushikeshnimkar.xyz/sitemap.xml
+Sitemap: https://nandhakumar.xyz/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 10

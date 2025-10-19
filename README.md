@@ -4,12 +4,14 @@ A modern portfolio website built with Next.js 15, featuring AI chat integration 
 
 ## ✨ Features
 
-]- **Interactive Chat**: Talk directly with an AI version of me using advanced LLMs
+- **AI-Powered Email Generation**: Create professional emails with AI assistance
+- **Interactive Chat**: Talk directly with an AI version of me using advanced LLMs
 - **Vector Embeddings**: Semantic search capabilities for more accurate AI responses
 - **Dynamic Animations**: Engaging UI with smooth animations
 - **Responsive Design**: Seamless experience across all devices
 - **Dark Mode**: Eye-friendly interface for all lighting conditions
 - **Project Showcase**: Interactive displays of my work and contributions
+- **AI-Powered Dynamic Theming**: Transform the entire interface with natural language requests, allowing real-time visual customization
 
 ---
 
@@ -19,7 +21,10 @@ A modern portfolio website built with Next.js 15, featuring AI chat integration 
 | ------------------- | --------------------------------------------------- |
 | **Frontend**        | Next.js 15, TypeScript, Tailwind CSS, Framer Motion |
 | **Backend**         | Node.js, Next.js API Routes                         |
+| **AI Integration**  | OpenRouter API                                      |
+| **Embeddings**      | Google Gemini                                       |
 | **Vector Database** | Pinecone                                            |
+| **Search**          | Tavily API                                          |
 | **Email**           | Nodemailer, Abstract API                            |
 | **Deployment**      | Vercel + Edge Functions                             |
 
@@ -87,6 +92,8 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000)
 
+> **⚠️ IMPORTANT NOTE:** Make sure to uncomment the following line in `api/chat/route.ts` & `api/theme/route.ts` when working in development:
+>
 > ```javascript
 > // "http://localhost:3000",
 > ```
@@ -100,6 +107,15 @@ The portfolio includes an AI-powered email generation system that:
 - Supports both AI-generated and manual email composition
 - Features elegant text generation animations
 
+## 💬 AI Chat Integration
+
+Chat with an AI version of me that:
+
+- Answers questions about my skills, experience, and projects
+- Accesses real-time information when needed via Tavily search
+- Maintains conversation context across messages
+- Provides accurate information about my background and expertise
+- Uses vector embeddings for more accurate and relevant responses
 
 ## 🎨 AI Theme Customization
 
@@ -131,7 +147,25 @@ The portfolio uses Pinecone vector database to store and retrieve embeddings:
 
 Create a `.env` file in the root directory and add your environment variables:
 
+```env
+# Development environment (all the apis are free)
+EMAIL_USER="your emailid"
+EMAIL_APP_PASSWORD="your App Password" # get it from your Google Account settings
+ABSTRACT_API_KEY="your abstract api key" # https://app.abstractapi.com/
+OPENROUTER_API_KEY="your openrouter api key" # https://openrouter.ai/
+TAVILY_API_KEY="your Tavily api key" # https://tavily.com/
 
+# Vector Database (Pinecone)
+PINECONE_API_KEY="your Pinecone API key" # https://app.pinecone.io/
+PINECONE_INDEX_NAME="your index name" # e.g., portfolio-embeddings
+
+# Google Gemini (for embeddings)
+GOOGLE_API_KEY="your Google API key" # https://ai.google.dev/
+
+#jwt auth
+JWT_EXPIRY="1m"
+JWT_SECRET="your jwt token" # use this command for linux = "openssl rand -hex 64" or node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"  (works on windows/linux/mac)
+```
 
 ## Vector Store Configuration
 
@@ -143,7 +177,15 @@ The vector store is configured in `lib/embeddings.ts` with the following setting
 
 You can modify these settings in the `initializeVectorStore` function if needed.
 
+## 📸 Preview
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3fd52f61-e898-4d80-8df0-2730691c1926" alt="Preview 1" width="45%" />
+  &nbsp;
+  <img src="https://github.com/user-attachments/assets/2dadd649-c3d2-4e54-b554-7c2d2049c9d8" alt="Preview 2" width="45%" />
+</p>
+
+---
 
 ## 📄 License
 
