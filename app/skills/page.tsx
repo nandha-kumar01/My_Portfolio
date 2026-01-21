@@ -8,6 +8,7 @@ import {
   SiTailwindcss,
   SiJavascript,
   SiPostgresql,
+  SiBootstrap,
   SiGit,
   SiLinux,
   SiMongodb,
@@ -15,19 +16,29 @@ import {
   SiExpress,
   SiHtml5,
   SiCss3,
+  SiMui,
+  SiGithub,
+  SiNpm,
+  SiVite,
+  SiPostman,
+  SiVercel,
+  SiEslint,
+  SiDocker,
+  SiFigma,
 } from "react-icons/si";
 import { FiCode, FiDatabase, FiTool } from "react-icons/fi";
 import { TbBrain } from "react-icons/tb";
 
 const skills = {
   "Frontend Development": [
+     { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+    { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
     { name: "HTML", icon: <SiHtml5 className="text-[#E34F26]" /> },
     { name: "CSS", icon: <SiCss3 className="text-[#1572B6]" /> },
-    { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
-    { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+    { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" /> },
     { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" /> },
     { name: "Tailwind CSS",icon: <SiTailwindcss className="text-[#06B6D4]" />,},
-    { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" /> },
+  { name: "Material UI", icon: <SiMui className="text-[#007FFF]" /> },
   ],
   "Backend Development": [
     { name: "Node.js", icon: <SiNodedotjs className="text-[#339933]" /> },
@@ -37,10 +48,15 @@ const skills = {
     { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" /> },
     { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
   ],
-  "Tools & Technologies": [
-    { name: "Git", icon: <SiGit className="text-[#F05032]" /> },
-    { name: "Linux", icon: <SiLinux className="text-[#FCC624]" /> },
-  ],
+ "Tools & Technologies": [
+  { name: "Git", icon: <SiGit className="text-[#F05032]" /> },
+  { name: "GitHub", icon: <SiGithub className="text-white" /> },
+  { name: "Linux", icon: <SiLinux className="text-[#FCC624]" /> },
+  { name: "npm", icon: <SiNpm className="text-[#CB3837]" /> },
+  { name: "Postman", icon: <SiPostman className="text-[#FF6C37]" /> },
+  { name: "Vercel", icon: <SiVercel className="text-white" /> },
+]
+
 };
 
 const categoryIcons = {

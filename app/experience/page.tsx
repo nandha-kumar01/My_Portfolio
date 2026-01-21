@@ -5,7 +5,7 @@ import { FiMapPin, FiBriefcase } from "react-icons/fi";
 export default function ExperiencePage() {
   const data = [
     {
-      title: "March 2024 - Present",
+      title: "March 2024 - Dec 2025",
       content: (
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <div className="flex-shrink-0 pt-1">
@@ -105,6 +105,12 @@ export default function ExperiencePage() {
                   </span>
                   <span className="px-2 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full whitespace-nowrap">
                     GitHub Actions
+                  </span>
+                  <span className="px-2 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full whitespace-nowrap">
+                    Playwright
+                  </span>
+                  <span className="px-2 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full whitespace-nowrap">
+                    AWS
                   </span>
                 </div>
               </div>

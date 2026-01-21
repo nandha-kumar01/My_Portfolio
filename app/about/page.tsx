@@ -90,7 +90,7 @@ export default function About() {
   I specialize in building modern, responsive, and user-friendly web
   applications using{" "}
   <span className="text-white font-medium">
-    React, Next.js, Javascript, TypeScript, Tailwind CSS, Firebase, and MongoDB
+    React, Next.js, Javascript, TypeScript, Tailwind CSS, Material UI, Bootstrap, MongoDB and PostgreSQL
   </span>
   .
 </p>

@@ -7,6 +7,11 @@ import Head from "next/head";
 import { SafeImage } from "@/components/ui/safe-image";
 
 import { Project } from "@/types";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 // SEO keywords and descriptions
 const SEO = {
@@ -57,8 +62,21 @@ const projects: Project[] = [
     link: "https://cr.s2staxi.com/",
     github: "https://github.com/login",
   },
-  {
+   {
     id: 4,
+    title: "Cabscript",
+    description:
+      "CabScript is a website that sells ready-made Taxi App and Admin Panel source code only.With a one-time payment, you can launch your own taxi booking business quickly and easily",
+    media: {
+      type: "image",
+      src: ["/projects/Cabscript 1.png", "/projects/Cabscript 2.png", "/projects/Cabscript 3.png"],
+    },
+    tags: ["Next.js", "Tailwind CSS", "CSS", "TypeScript", "Material UI","Express.js", "PostgreSQL"],
+    link: "https://www.cabscript.com/",
+    github: "https://github.com/login",
+  },
+  {
+    id: 5,
     title: "Tamil Travel",
     description:
 "Tamil Travel is a static travel website designed for Tamil-speaking explorers. It features essential travel details including food, accommodation, tour packages, and available services. With a clean and simple layout, it helps users easily explore travel options and plan their trips. Ideal for those looking for a quick overview of travel essentials—all in one place.",
@@ -71,7 +89,7 @@ const projects: Project[] = [
     github: "https://github.com/login",
   },
     {
-    id: 5,
+    id: 6,
     title: "Palani-pathaiyathirai AdminPanel",
     description:
 "Palani Pathayathiri Admin Panel is a centralized management system to monitor and manage users, groups, temples, stays, food spots, and devotional songs. It features real-time location tracking of each participant via map, sends notifications, and helps organize group travels. The panel ensures smooth coordination, data access, and user activity monitoring for a well-managed pilgrimage experience.",
@@ -84,7 +102,7 @@ const projects: Project[] = [
     github: "https://github.com/login",
   },
    {
-    id: 6,
+    id: 7,
     title: "Jewelra",
     description:
       "Jewelra is a luxurious online jewellery destination, showcasing an exquisite collection of 2000+ timeless designs across Gold, Silver, Diamond, Coins & Bars. The platform offers a refined browsing experience with high-definition visuals, detailed product insights, and curated collections to suit every style. Users can effortlessly create wishlists, manage their shopping cart, and enjoy a secure, user-friendly login/signup process. Jewelra blends elegance with technology, making premium jewellery accessible with just a click—where tradition meets modern convenience.",
@@ -290,24 +308,40 @@ export default function Projects() {
           </motion.p>
 
           {/* Project Grid Layout with new variants */}
-          <motion.div
-            id="projects-grid"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
-            variants={gridContainerVariants}
-            initial="hidden"
-            animate="show"
-          >
-            {projects.map((project, index) => (
-              <motion.div
+         <Swiper
+  modules={[Autoplay, Navigation]}
+  spaceBetween={24}
+  slidesPerView={3}
+  loop={true}
+  autoplay={{
+    delay: 3000,
+    disableOnInteraction: false,
+  }}
+  navigation
+  breakpoints={{
+    0: { slidesPerView: 1 },
+    640: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+  }}
+>
+
+   {projects.map((project, index) => (
+ <SwiperSlide className="h-auto flex">
+
+    <motion.div
+
                 key={project.id}
                 id={`project-card-${project.id}`}
                 layoutId={`project-${project.id}`}
                 variants={projectCardVariants} // Apply card animation
-                className="bg-neutral-700/30 rounded-xl overflow-hidden border backdrop-blur-sm flex flex-col h-full group cursor-pointer will-change-transform transition-all duration-300 hover:scale-[1.02] hover:-translate-y-2"
+                className="bg-neutral-700/30 rounded-xl overflow-hidden border flex flex-col h-full group cursor-pointer will-change-transform transition-all duration-300 hover:scale-[1.02] hover:-translate-y-2"
                 style={{ 
                   borderColor: '#354e5a',
                   boxShadow: 'none',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+  WebkitFontSmoothing: "antialiased",
+  transform: "translateZ(0)"
+
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow = '0 0 20px rgba(209, 213, 219, 0.3), 0 0 40px rgba(209, 213, 219, 0.1)';
@@ -327,7 +361,7 @@ export default function Projects() {
                       src={Array.isArray(project.media.src) ? project.media.src[0] : project.media.src}
                       alt={project.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-110 contrast-110"
                       priority={index < 3}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       fallbackSrc="/projects/placeholder.svg"
@@ -338,7 +372,7 @@ export default function Projects() {
                         src={getYouTubeThumbnail(project.media.src as string)}
                         alt={project.title + " video thumbnail"}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-110 contrast-110"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -446,9 +480,11 @@ export default function Projects() {
                     )}
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                </motion.div>
+  </SwiperSlide>
+))}
+</Swiper>
+
 
           <footer className="mt-20 text-center text-sm text-neutral-600 hidden">
             <p>
