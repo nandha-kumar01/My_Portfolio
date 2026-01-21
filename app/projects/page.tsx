@@ -32,7 +32,7 @@ const projects: Project[] = [
       type: "image",
       src: ["/projects/PeoplePlus_1.png", "/projects/PeoplePlus_2.png", "/projects/PeoplePlus_3.png"],
     },
-    tags: ["Next.js", "TypeScript", "Tailwind CSS" , "AWS Lambda", "Boostrap", "Node.js"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "AWS Lambda", "Boostrap", "Node.js"],
     link: "https://www.peopleplus.press/en",
     github: "https://github.com/login",
   },
@@ -45,7 +45,7 @@ const projects: Project[] = [
       type: "image",
       src: ["/projects/Gemtrove 1.png", "/projects/Gemtrove 2.jpeg", "/projects/Gemtrove 3.png"],
     },
-    tags: ["React", "Next.js", "Tailwind", "TypeScript", "Node.js", "AWS Lambda" , "PHP", ],
+    tags: ["React", "Next.js", "Tailwind", "TypeScript", "Node.js", "AWS Lambda", "PHP",],
     link: "https://gemtrove.vercel.app/",
     github: "https://github.com/login",
   },
@@ -62,7 +62,7 @@ const projects: Project[] = [
     link: "https://cr.s2staxi.com/",
     github: "https://github.com/login",
   },
-   {
+  {
     id: 4,
     title: "Cabscript",
     description:
@@ -71,7 +71,7 @@ const projects: Project[] = [
       type: "image",
       src: ["/projects/Cabscript 1.png", "/projects/Cabscript 2.png", "/projects/Cabscript 3.png"],
     },
-    tags: ["Next.js", "Tailwind CSS", "CSS", "TypeScript", "Material UI","Express.js", "PostgreSQL"],
+    tags: ["Next.js", "Tailwind CSS", "CSS", "TypeScript", "Material UI", "Express.js", "PostgreSQL"],
     link: "https://www.cabscript.com/",
     github: "https://github.com/login",
   },
@@ -79,7 +79,7 @@ const projects: Project[] = [
     id: 5,
     title: "Tamil Travel",
     description:
-"Tamil Travel is a static travel website designed for Tamil-speaking explorers. It features essential travel details including food, accommodation, tour packages, and available services. With a clean and simple layout, it helps users easily explore travel options and plan their trips. Ideal for those looking for a quick overview of travel essentials—all in one place.",
+      "Tamil Travel is a static travel website designed for Tamil-speaking explorers. It features essential travel details including food, accommodation, tour packages, and available services. With a clean and simple layout, it helps users easily explore travel options and plan their trips. Ideal for those looking for a quick overview of travel essentials—all in one place.",
     media: {
       type: "image",
       src: ["/projects/Tamil-Travel 1.png", "/projects/Tamil-Travel 2.png", "/projects/Tamil-Travel 3.png"],
@@ -88,20 +88,20 @@ const projects: Project[] = [
     link: "https://traveltamil.vercel.app/",
     github: "https://github.com/login",
   },
-    {
+  {
     id: 6,
     title: "Palani-pathaiyathirai AdminPanel",
     description:
-"Palani Pathayathiri Admin Panel is a centralized management system to monitor and manage users, groups, temples, stays, food spots, and devotional songs. It features real-time location tracking of each participant via map, sends notifications, and helps organize group travels. The panel ensures smooth coordination, data access, and user activity monitoring for a well-managed pilgrimage experience.",
+      "Palani Pathayathiri Admin Panel is a centralized management system to monitor and manage users, groups, temples, stays, food spots, and devotional songs. It features real-time location tracking of each participant via map, sends notifications, and helps organize group travels. The panel ensures smooth coordination, data access, and user activity monitoring for a well-managed pilgrimage experience.",
     media: {
       type: "image",
-     src: ["/projects/palani-admin1.png", "/projects/palani-admin2.png", "/projects/palani-admin3.png"],
+      src: ["/projects/palani-admin1.png", "/projects/palani-admin2.png", "/projects/palani-admin3.png"],
     },
-    tags: ["Next.js", "Tailwind CSS", "TypeScript" , "MongoDB" , "Express.js", "Firebase" , "Cloudinary"],
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "MongoDB", "Express.js", "Firebase", "Cloudinary"],
     link: "https://palani-admin.vercel.app/",
     github: "https://github.com/login",
   },
-   {
+  {
     id: 7,
     title: "Jewelra",
     description:
@@ -110,7 +110,7 @@ const projects: Project[] = [
       type: "image",
       src: ["/projects/Jewelra 1.png", "/projects/Jewelra 2.png", "/projects/Jewelra 3.png"],
     },
-      tags: ["Next.js", "Tailwind CSS", "TypeScript" , "MongoDB" , "Express.js" , "Cloudinary", "Framer Motion"],
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "MongoDB", "Express.js", "Cloudinary"],
     link: "https://jewelra.vercel.app/",
     github: "https://github.com/login",
   },
@@ -226,7 +226,7 @@ export default function Projects() {
     } else {
       document.body.style.overflow = "auto";
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Separate useEffect for handling modal and image index
@@ -243,12 +243,12 @@ export default function Projects() {
       if (selectedProject && Array.isArray(selectedProject.media.src) && selectedProject.media.src.length > 1) {
         if (e.key === 'ArrowLeft') {
           e.preventDefault();
-          setCurrentImageIndex((prev) => 
+          setCurrentImageIndex((prev) =>
             prev === 0 ? (selectedProject.media.src as string[]).length - 1 : prev - 1
           );
         } else if (e.key === 'ArrowRight') {
           e.preventDefault();
-          setCurrentImageIndex((prev) => 
+          setCurrentImageIndex((prev) =>
             (prev + 1) % (selectedProject.media.src as string[]).length
           );
         }
@@ -298,7 +298,7 @@ export default function Projects() {
             Projects
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -308,182 +308,190 @@ export default function Projects() {
           </motion.p>
 
           {/* Project Grid Layout with new variants */}
-         <Swiper
-  modules={[Autoplay, Navigation]}
-  spaceBetween={24}
-  slidesPerView={3}
-  loop={true}
-  autoplay={{
-    delay: 3000,
-    disableOnInteraction: false,
-  }}
-  navigation
-  breakpoints={{
-    0: { slidesPerView: 1 },
-    640: { slidesPerView: 2 },
-    1024: { slidesPerView: 3 },
-  }}
->
+          <Swiper
+            modules={[Autoplay, Navigation]}
+            spaceBetween={24}
+            slidesPerView={3}
+            loop={true}
+              className="items-stretch"   // 👈 ADD THIS LINE
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            navigation
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
 
-   {projects.map((project, index) => (
- <SwiperSlide key={project.id} className="h-auto flex">
+            {projects.map((project, index) => (
+<SwiperSlide key={project.id} className="h-full flex">
 
-    <motion.div
+                <motion.div
 
-                key={project.id}
-                id={`project-card-${project.id}`}
-                layoutId={`project-${project.id}`}
-                variants={projectCardVariants} // Apply card animation
-                className="bg-neutral-700/30 rounded-xl overflow-hidden border flex flex-col h-full group cursor-pointer will-change-transform transition-all duration-300 hover:scale-[1.02] hover:-translate-y-2"
-                style={{ 
-                  borderColor: '#354e5a',
-                  boxShadow: 'none',
-                  transition: 'all 0.3s ease',
-  WebkitFontSmoothing: "antialiased",
-  transform: "translateZ(0)"
+                  key={project.id}
+                  id={`project-card-${project.id}`}
+                  layoutId={`project-${project.id}`}
+                  variants={projectCardVariants} // Apply card animation
+className="bg-neutral-700/30 
+           rounded-xl 
+           overflow-hidden 
+           border 
+           flex flex-col 
+           h-[520px]      // 👈 ADD THIS
+           group 
+           cursor-pointer"
+                  style={{
+                    borderColor: '#354e5a',
+                    boxShadow: 'none',
+                    transition: 'all 0.3s ease',
+                    WebkitFontSmoothing: "antialiased",
+                    transform: "translateZ(0)"
 
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = '0 0 20px rgba(209, 213, 219, 0.3), 0 0 40px rgba(209, 213, 219, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-                onClick={() => setSelectedProject(project)}
-              >
-                {/* Project Media */}
-                <div
-                  id={`project-media-${project.id}`}
-                  className="relative w-full aspect-video overflow-hidden bg-neutral-950"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 0 20px rgba(209, 213, 219, 0.3), 0 0 40px rgba(209, 213, 219, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                  onClick={() => setSelectedProject(project)}
                 >
-                  {project.media.type === "image" ? (
-                    <SafeImage
-                      src={Array.isArray(project.media.src) ? project.media.src[0] : project.media.src}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-110 contrast-110"
-                      priority={index < 3}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      fallbackSrc="/projects/placeholder.svg"
-                    />
-                  ) : (
-                    <div className="relative w-full h-full cursor-pointer">
-                      <Image
-                        src={getYouTubeThumbnail(project.media.src as string)}
-                        alt={project.title + " video thumbnail"}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-110 contrast-110"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <svg
-                          width="64"
-                          height="64"
-                          viewBox="0 0 64 64"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            cx="32"
-                            cy="32"
-                            r="32"
-                            fill="rgba(0,0,0,0.5)"
-                          />
-                          <polygon points="26,20 48,32 26,44" fill="#fff" />
-                        </svg>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Project Details */}
-                <div
-                  id={`project-details-${project.id}`}
-                  className="p-4 sm:p-6 flex flex-col flex-grow"
-                >
-                  <h2
-                    id={`project-title-${project.id}`}
-                    className="text-base sm:text-lg md:text-xl font-semibold text-neutral-200 mb-2"
-                  >
-                    {project.title}
-                  </h2>
-
-                  {/* Enhanced 3-line description with better ellipsis handling */}
+                  {/* Project Media */}
                   <div
-                    id={`project-description-${project.id}`}
-                    className="text-sm sm:text-base text-neutral-400 leading-relaxed mb-3 flex-grow relative"
+                    id={`project-media-${project.id}`}
+  className="relative w-full h-[220px] flex-none overflow-hidden bg-neutral-950"
                   >
-                    <p
-                      className="overflow-hidden"
-                      style={{
-                        display: "-webkit-box",
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: "vertical",
-                        lineHeight: "1.5",
-                        maxHeight: "4.5em", // 3 lines * 1.5 line-height
-                      }}
-                      title={project.description} // Show full text on hover
-                    >
-                      {project.description}
-                    </p>
-
-                    {/* Gradient fade effect for better visual indication of truncation */}
-                    {project.description.length > 150 && (
-                      <div className="absolute bottom-0 right-0 w-8 h-6 bg-gradient-to-l from-neutral-700/30 to-transparent pointer-events-none" />
+                    {project.media.type === "image" ? (
+                      <SafeImage
+                        src={Array.isArray(project.media.src) ? project.media.src[0] : project.media.src}
+                        alt={project.title}
+                        fill
+  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        priority={index < 3}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        fallbackSrc="/projects/placeholder.svg"
+                      />
+                    ) : (
+                      <div className="relative w-full h-full cursor-pointer">
+                        <Image
+                          src={getYouTubeThumbnail(project.media.src as string)}
+                          alt={project.title + " video thumbnail"}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-110 contrast-110"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                          <svg
+                            width="64"
+                            height="64"
+                            viewBox="0 0 64 64"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              cx="32"
+                              cy="32"
+                              r="32"
+                              fill="rgba(0,0,0,0.5)"
+                            />
+                            <polygon points="26,20 48,32 26,44" fill="#fff" />
+                          </svg>
+                        </div>
+                      </div>
                     )}
                   </div>
 
+                  {/* Project Details */}
                   <div
-                    id={`project-tags-${project.id}`}
-                    className="flex flex-wrap gap-2 mb-4"
+                    id={`project-details-${project.id}`}
+                    className="p-4 sm:p-6 flex flex-col flex-grow"
                   >
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 text-xs sm:text-sm rounded-full bg-neutral-800 text-neutral-400 border border-neutral-700"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Project Links */}
-                  <div
-                    id={`project-links-${project.id}`}
-                    className="flex flex-wrap gap-3 mt-auto"
-                  >
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(project.github, "_blank");
-                      }}
-                      className="flex items-center gap-2 text-white/80 hover:text-white bg-neutral-800 hover:bg-neutral-700 px-3 py-1.5 rounded-lg transition-colors text-xs sm:text-sm"
-                      aria-label={`View source code for ${project.title} on GitHub`}
-                      title="View on GitHub"
+                    <h2
+                      id={`project-title-${project.id}`}
+                      className="text-base sm:text-lg md:text-xl font-semibold text-neutral-200 mb-2"
                     >
-                      <FiGithub className="w-4 h-4" />
-                      <span>GitHub</span>
-                    </button>
-                    {project.link && (
+                      {project.title}
+                    </h2>
+
+                    {/* Enhanced 3-line description with better ellipsis handling */}
+                    <div
+                      id={`project-description-${project.id}`}
+  className="text-sm sm:text-base text-neutral-400 leading-relaxed mb-3 relative"
+                    >
+                      <p
+                        className="overflow-hidden"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: "vertical",
+                          lineHeight: "1.5",
+                          maxHeight: "4.5em", // 3 lines * 1.5 line-height
+                        }}
+                        title={project.description} // Show full text on hover
+                      >
+                        {project.description}
+                      </p>
+
+                      {/* Gradient fade effect for better visual indication of truncation */}
+                      {project.description.length > 150 && (
+                        <div className="absolute bottom-0 right-0 w-8 h-6 bg-gradient-to-l from-neutral-700/30 to-transparent pointer-events-none" />
+                      )}
+                    </div>
+
+                    <div
+                      id={`project-tags-${project.id}`}
+                      className="flex flex-wrap gap-2 mb-4"
+                    >
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 text-xs sm:text-sm rounded-full bg-neutral-800 text-neutral-400 border border-neutral-700"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Project Links */}
+                    <div
+                      id={`project-links-${project.id}`}
+                      className="flex flex-wrap gap-3 mt-auto"
+                    >
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          window.open(project.link, "_blank");
+                          window.open(project.github, "_blank");
                         }}
-                        className="flex items-center gap-2 text-white/90 hover:text-white bg-blue-600/80 hover:bg-blue-600 px-3 py-1.5 rounded-lg transition-colors text-xs sm:text-sm"
-                        aria-label={`View live demo of ${project.title}`}
-                        title="View Live Demo"
+                        className="flex items-center gap-2 text-white/80 hover:text-white bg-neutral-800 hover:bg-neutral-700 px-3 py-1.5 rounded-lg transition-colors text-xs sm:text-sm"
+                        aria-label={`View source code for ${project.title} on GitHub`}
+                        title="View on GitHub"
                       >
-                        <FiExternalLink className="w-4 h-4" />
-                        <span>Live Demo</span>
+                        <FiGithub className="w-4 h-4" />
+                        <span>GitHub</span>
                       </button>
-                    )}
+                      {project.link && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.link, "_blank");
+                          }}
+                          className="flex items-center gap-2 text-white/90 hover:text-white bg-blue-600/80 hover:bg-blue-600 px-3 py-1.5 rounded-lg transition-colors text-xs sm:text-sm"
+                          aria-label={`View live demo of ${project.title}`}
+                          title="View Live Demo"
+                        >
+                          <FiExternalLink className="w-4 h-4" />
+                          <span>Live Demo</span>
+                        </button>
+                      )}
+                    </div>
                   </div>
-                </div>
                 </motion.div>
-  </SwiperSlide>
-))}
-</Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
 
           <footer className="mt-20 text-center text-sm text-neutral-600 hidden">
@@ -539,8 +547,8 @@ export default function Projects() {
                       <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-neutral-950 shadow-2xl">
                         <SafeImage
                           key={`${selectedProject.id}-${currentImageIndex}`} // Force re-render on image change
-                          src={Array.isArray(selectedProject.media.src) 
-                            ? selectedProject.media.src[currentImageIndex] 
+                          src={Array.isArray(selectedProject.media.src)
+                            ? selectedProject.media.src[currentImageIndex]
                             : selectedProject.media.src}
                           alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
                           fill
@@ -550,7 +558,7 @@ export default function Projects() {
                           fallbackSrc="/projects/placeholder.svg"
                         />
                       </div>
-                      
+
                       {/* Navigation arrows - only show if multiple images */}
                       {Array.isArray(selectedProject.media.src) && selectedProject.media.src.length > 1 && (
                         <>
@@ -559,7 +567,7 @@ export default function Projects() {
                               e.stopPropagation();
                               e.preventDefault();
                               const srcArray = selectedProject.media.src as string[];
-                              setCurrentImageIndex((prev) => 
+                              setCurrentImageIndex((prev) =>
                                 prev === 0 ? srcArray.length - 1 : prev - 1
                               );
                             }}
@@ -569,13 +577,13 @@ export default function Projects() {
                           >
                             <FiChevronLeft className="w-6 h-6" />
                           </button>
-                          
+
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
                               e.preventDefault();
                               const srcArray = selectedProject.media.src as string[];
-                              setCurrentImageIndex((prev) => 
+                              setCurrentImageIndex((prev) =>
                                 (prev + 1) % srcArray.length
                               );
                             }}
@@ -585,7 +593,7 @@ export default function Projects() {
                           >
                             <FiChevronRight className="w-6 h-6" />
                           </button>
-                          
+
                           {/* Image indicators */}
                           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                             {(selectedProject.media.src as string[]).map((_, index) => (
@@ -596,17 +604,16 @@ export default function Projects() {
                                   e.preventDefault();
                                   setCurrentImageIndex(index);
                                 }}
-                                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                                  index === currentImageIndex 
-                                    ? 'bg-white scale-110 shadow-lg' 
+                                className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentImageIndex
+                                    ? 'bg-white scale-110 shadow-lg'
                                     : 'bg-white/50 hover:bg-white/80'
-                                }`}
+                                  }`}
                                 aria-label={`Go to image ${index + 1}`}
                                 type="button"
                               />
                             ))}
                           </div>
-                          
+
                           {/* Image counter */}
                           <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium z-10">
                             {currentImageIndex + 1} / {(selectedProject.media.src as string[]).length}
@@ -644,7 +651,7 @@ export default function Projects() {
                     <h3 className="text-lg font-semibold text-neutral-200 uppercase tracking-wide">
                       About
                     </h3>
-                    <p className="text-neutral-300 leading-relaxed text-lg" style={{textAlign: "justify"}}>
+                    <p className="text-neutral-300 leading-relaxed text-lg" style={{ textAlign: "justify" }}>
                       {selectedProject.description}
                     </p>
                   </motion.div>

@@ -1,28 +1,51 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    /* ---------- Language & Runtime ---------- */
+    "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    "jsx": "react-jsx",
+
+    /* ---------- Module System ---------- */
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
+
+    /* ---------- Strictness & Safety ---------- */
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "noEmit": true,
+
+    /* ---------- Interop ---------- */
+    "allowJs": true,
+    "esModuleInterop": true,
+
+    /* ---------- Performance ---------- */
     "incremental": true,
+
+    /* ---------- Path Aliases ---------- */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+
+    /* ---------- Next.js Plugin ---------- */
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./*"]
-    },
-    "baseUrl": "."
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+
+  /* ---------- IMPORTANT (prevents auto reconfigure message) ---------- */
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+
   "exclude": ["node_modules"]
 }
