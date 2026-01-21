@@ -326,7 +326,7 @@ export default function Projects() {
 >
 
    {projects.map((project, index) => (
- <SwiperSlide className="h-auto flex">
+ <SwiperSlide key={project.id} className="h-auto flex">
 
     <motion.div
 

@@ -8,7 +8,6 @@ import {
   SiTailwindcss,
   SiJavascript,
   SiPostgresql,
-  SiBootstrap,
   SiGit,
   SiLinux,
   SiMongodb,
@@ -19,12 +18,8 @@ import {
   SiMui,
   SiGithub,
   SiNpm,
-  SiVite,
   SiPostman,
   SiVercel,
-  SiEslint,
-  SiDocker,
-  SiFigma,
 } from "react-icons/si";
 import { FiCode, FiDatabase, FiTool } from "react-icons/fi";
 import { TbBrain } from "react-icons/tb";
