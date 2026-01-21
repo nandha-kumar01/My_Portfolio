@@ -450,3 +450,18 @@ html {
 .animate-slide-right {
   animation: slide-right 3s ease-in-out infinite;
 }
+
+/* ❌ Mobile: hide swiper arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+}
+
+/* ✅ Desktop only (md and above): show arrows */
+@media (min-width: 768px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: flex !important;
+  }
+}
+

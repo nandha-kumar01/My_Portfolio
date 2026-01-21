@@ -86,6 +86,7 @@ export default function About() {
 <p
   id="about-description-1"
   className="text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed"
+  style={{ textAlign: "justify" }}
 >
   I specialize in building modern, responsive, and user-friendly web
   applications using{" "}
@@ -98,6 +99,7 @@ export default function About() {
 <p
   id="about-description-2"
   className="text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed"
+  style={{ textAlign: "justify" }}
 >
   My focus is on writing clean code, creating intuitive designs, and
   delivering solutions that bring real value to businesses and users.
@@ -106,6 +108,7 @@ export default function About() {
 <p
   id="about-description-3"
   className="text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed"
+  style={{ textAlign: "justify" }}
 >
   Currently, I&apos;m expanding into Full-Stack Development while exploring
   new technologies to grow as a complete solution builder.

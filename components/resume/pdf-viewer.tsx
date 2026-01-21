@@ -5,7 +5,7 @@ export default function PDFViewer() {
   const [iframeHeight, setIframeHeight] = useState("800px");
   const [isMobile, setIsMobile] = useState(false);
 
-  const resumePath = "/Nandha.pdf";
+  const resumePath = "/resume.pdf"
 
   useEffect(() => {
     // Set a timeout to consider the PDF loaded after 2 seconds
@@ -92,14 +92,17 @@ export default function PDFViewer() {
             </div>
           </div>
         ) : (
-          // Desktop view with iframe
-          <iframe
-            src={`${resumePath}#view=FitH`}
-            className="w-full rounded-md"
-            height={iframeHeight}
-            style={{ border: "none" }}
-            title="Resume PDF"
-          />
+ <div className="w-full h-[calc(100vh-120px)] border border-neutral-800 rounded-xl overflow-hidden bg-black">
+      <iframe
+        src="/resume.pdf"
+        className="w-full h-full"
+        style={{ border: "none" }}
+      />
+    </div>
+
+
+
+
         )}
       </div>
 

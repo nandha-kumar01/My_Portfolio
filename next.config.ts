@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
 
-  // Image optimization
   images: {
     remotePatterns: [
       {
@@ -17,18 +16,37 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000,
   },
 
-  // Security headers
   async headers() {
     return [
+      // ✅ PDF HEADERS (INLINE VIEW ALLOWED)
       {
-        source: "/(.*)",
+        source: "/:path*\\.pdf",
+        headers: [
+          { key: "Content-Type", value: "application/pdf" },
+          { key: "Content-Disposition", value: "inline" },
+
+          // 🔥 IMPORTANT: iframe allow
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+
+          {
+            key: "Content-Security-Policy",
+            value:
+              "default-src 'self'; frame-ancestors 'self'; object-src 'self';",
+          },
+        ],
+      },
+
+      // 🔒 GLOBAL HEADERS (EXCLUDING PDF)
+      {
+        source: "/((?!.*\\.pdf).*)",
         headers: [
           { key: "X-Frame-Options", value: "DENY" },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "origin-when-cross-origin" },
           {
             key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+            value:
+              "camera=(), microphone=(), geolocation=(), browsing-topics=()",
           },
           {
             key: "Strict-Transport-Security",
@@ -51,11 +69,9 @@ const nextConfig: NextConfig = {
                 https://va.vercel-scripts.com
                 https://vitals.vercel-insights.com
                 https://api.github.com;
-              frame-src https://www.youtube.com https://youtube.com;
-              object-src 'none';
+              frame-src 'self' https://www.youtube.com https://youtube.com;
               base-uri 'self';
               form-action 'self';
-              frame-ancestors 'none';
               upgrade-insecure-requests;
             `
               .replace(/\s+/g, " ")
@@ -76,7 +92,6 @@ const nextConfig: NextConfig = {
 
   output: "standalone",
 
-  // Webpack (since we force webpack via scripts)
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {

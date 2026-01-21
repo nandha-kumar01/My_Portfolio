@@ -307,24 +307,23 @@ export default function Projects() {
             Transforming ideas into innovative digital solutions with modern web technologies
           </motion.p>
 
-          {/* Project Grid Layout with new variants */}
-          <Swiper
-            modules={[Autoplay, Navigation]}
-            spaceBetween={24}
-            slidesPerView={3}
-            loop={true}
-              className="items-stretch"   // 👈 ADD THIS LINE
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            navigation
-            breakpoints={{
-              0: { slidesPerView: 1 },
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-          >
+         <Swiper
+  modules={[Autoplay, Navigation]}
+  navigation
+  spaceBetween={24}
+  slidesPerView={3}
+  loop
+  autoplay={{
+    delay: 3000,
+    disableOnInteraction: false,
+  }}
+  breakpoints={{
+    0: { slidesPerView: 1 },
+    640: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+  }}
+>
+
 
             {projects.map((project, index) => (
 <SwiperSlide key={project.id} className="h-full flex">
